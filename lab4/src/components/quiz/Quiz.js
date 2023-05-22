@@ -11,6 +11,7 @@ function Quiz() {
   const [userId, setUserId] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [score, setScore] = useState(0);
 
   const location = useLocation();
 
@@ -35,6 +36,13 @@ function Quiz() {
 
     submitQuizAnswers(postAnswerRequest).then((response) => {
       console.log(response);
+      if (response.data.correct === true){
+        setScore(score + 1);
+        console.log(score)
+      }
+      else {
+        console.log("F")
+      }
     });
 
     // Move to the next question
@@ -43,7 +51,7 @@ function Quiz() {
 
   if (currentQuestionIndex >= questions.length) {
     // All questions have been answered
-    return <div>Quiz completed!</div>;
+    return <div>Quiz completed! Score: {score}</div>;
   }
 
   const currentQuestion = questions[currentQuestionIndex];
