@@ -79,3 +79,35 @@ export function getQuizByID(quizID) {
         return null; 
     });
 }
+
+
+export function submitQuizAnswers(args) {
+  const payload = {
+      data: {
+        question_id: args.questionId,
+        answer: args.answer,
+        user_id: args.userId
+      },
+    };
+  
+  return fetch(`https://late-glitter-4431.fly.dev/api/v54/quizzes/${args.quizId}/submit`, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    "X-Access-Token": ACCESS_TOKEN,
+  },
+  body: JSON.stringify(payload),
+  })
+  .then((response) => response.json())
+  .then((data) => {
+    console.log("Answers Submited:", data);
+    return {data}
+    // Handle the response data or perform any necessary actions
+  })
+  .catch((error) => {
+    console.log("Error submiting answers:", error);
+    return null
+    // Handle the error case accordingly
+  });
+}
+

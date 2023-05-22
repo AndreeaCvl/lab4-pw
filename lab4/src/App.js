@@ -2,6 +2,7 @@ import Homepage from "./components/Homepage";
 import AboutMe from "./components/AboutMe";
 import QuizzesList from "./components/quizzes-list/QuizzesList"
 import RegistrationForm from "./components/register/RegistrationForm"
+import Quiz from "./components/quiz/Quiz"
 
 import {Routes, Route, Link} from 'react-router-dom'
 
@@ -18,6 +19,7 @@ function App() {
         <Route path="/about-me" element={<AboutMe/>}/>
         <Route path="/quizzes-list" element={<QuizzesList/>}/>
         <Route path="/register" element={<RegistrationForm/>}/>
+        <Route path="/quiz" element={<Quiz/>}/>
       </Routes>
     </div>
   );
