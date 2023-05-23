@@ -2,6 +2,8 @@ import { useLocation } from "react-router-dom";
 import { getQuizes } from "../../requests"
 import React, { useState, useEffect } from "react";
 import { useNavigate} from "react-router-dom";
+import { useContext } from 'react';
+import { UserContext } from "../../UserContext";
 
 import { getQuizByID } from "../../requests";
 
@@ -10,18 +12,20 @@ function QuizzesList() {
     const [quizzes, setQuizzes] = useState([])
     const location = useLocation();
     const navigate = useNavigate();
+    const { userId } = useContext(UserContext);
+
 
 
     useEffect(() => {
         getQuizes().then(response=>{
             setQuizzes(response.data) });
             console.log("props")
-            console.log(location.state.id)
+            console.log(userId)
     }, []);
 
     const handleClick = (id) => {
         console.log(id);
-        navigate("/quiz",{state:{id:id, userId: location.state.id}});
+        navigate("/quiz",{state:{id:id, userId: userId}});
     };
     
     

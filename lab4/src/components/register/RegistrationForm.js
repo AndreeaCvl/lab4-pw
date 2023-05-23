@@ -2,12 +2,17 @@ import React , {useState} from "react";
 import { register } from "../../requests";
 import { useNavigate} from "react-router-dom";
 
+import { useContext } from 'react';
+import { UserContext } from "../../UserContext";
+
 export default function RegistrationForm() {
+
+    const { updateUser } = useContext(UserContext);
+
 
     const [name,setName] = React.useState("");
     const [surname,setSurname] = React.useState("");
     const navigate = useNavigate();
-
 
     const handleInputChange = (e) => {
         const {id , value} = e.target;
@@ -26,7 +31,8 @@ export default function RegistrationForm() {
 
         register(RegisterRequest).then(response=>{
             console.log(response);
-            navigate("/quizzes-list",{state:{id:response.data.id}});
+            updateUser(response.data.id);
+            navigate("/quizzes-list",/*{state:{id:response.data.id}}*/);
         });
     }    
 

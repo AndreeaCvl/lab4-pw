@@ -51,7 +51,7 @@ function Quiz() {
 
   if (currentQuestionIndex >= questions.length) {
     // All questions have been answered
-    return <div>Quiz completed! Score: {score}</div>;
+    return <div>Quiz completed! Score: {score}/{questions.length}</div>;
   }
 
   const currentQuestion = questions[currentQuestionIndex];
