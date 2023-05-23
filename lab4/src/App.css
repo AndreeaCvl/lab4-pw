@@ -1,3 +1,7 @@
+html, body {
+  margin: 0;
+  height: 100vh;
+}
 
 .App {
   text-align: center;
@@ -36,4 +40,143 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.nav {
+  background-color: #48304D;
+  padding: 22px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-item {
+  color: #f5f5f5;
+  text-decoration: none;
+}
+
+.left-nav-item {
+  margin-right: auto;
+}
+
+.registration-form {
+  background-color: #E0F9EE;
+  height: 100vh;
+}
+
+.form-element {
+  align-self: center;
+  position: relative;
+  top: 25%;
+}
+
+.formInput {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 20%;
+  margin-bottom: 10px;
+}
+
+.formButton {
+  text-align: center;
+}
+
+.formButton input[type="submit"] {
+  padding: 10px 20px;
+  background-color: #FBCAEF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 10%;
+}
+
+.formButton input[type="submit"]:hover {
+  background-color: #F865B0;
+}
+
+.quiz-list {
+  background-color: #E0F9EE;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.quizElement {
+  color: #f5f5f5;
+  margin: 30px;
+  display: grid;
+  grid-template-rows: 2fr 1fr;
+  cursor: pointer;
+} 
+
+.quizTitle {  
+  background-color: #C6CAED;
+  font-size: clamp(30px, 5vw, 50px); /* Adjust the range as needed */  
+  color: #f5f5f5;
+  display: grid;
+  padding: 10px;
+}
+
+.titleText {
+  align-self: center;
+}
+
+.quizQuestionCount {
+  color:#6F5E5C
+}
+
+.quiz {
+  background-color: #E0F9EE;
+  height: 100vh;
+}
+
+.questionElement {
+  display: grid;
+  grid-template-rows: 4fr 2fr 1fr;
+  height: 90%;
+}
+
+.question {
+  align-self: center;
+  color: #48304D;
+  font-size: clamp(30px, 5vw, 80px); /* Adjust the range as needed */  
+}
+
+.answers {
+  align-self: center;
+}
+
+.play-quiz-title {
+  padding: 20px;
+  font-size: larger;
+  color: #6F5E5C;
+}
+
+.answerElement {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 5px;
+  background-color: #FBCAEF;
+  border: none;
+  border-radius: 4px;
+  color: #48304D;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.answerElement.selected {
+  background-color: #F865B0;
+  color: #f5f5f5;
+}
+
+.final-message {
+  color: #48304D;
+  font-size: 80px;
+}
+
+.message-parts {
+  position: relative;
+  top: 20%
 }

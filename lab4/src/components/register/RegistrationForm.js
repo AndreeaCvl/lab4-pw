@@ -37,20 +37,22 @@ export default function RegistrationForm() {
     }    
 
     return (
-        <div>
+        <div className="registration-form">
+            <div className="form-element">
             <form>
                 <label>
-                    <div className="formInputName">Name</div>
-                    <input  className="formInput" type="text" value={name} onChange = {(e) => handleInputChange(e)} id="name" />
+                    <div className="formInputName"></div>
+                    <input placeholder="Name" className="formInput" type="text" value={name} onChange = {(e) => handleInputChange(e)} id="name" />
                 </label>
                 <label>
-                    <div className="formInputName">Surname</div>
-                    <input  className="formInput" type="text" value={surname} onChange = {(e) => handleInputChange(e)} id="surname" />
+                    <div className="formInputName"></div>
+                    <input  placeholder="Surname" className="formInput" type="text" value={surname} onChange = {(e) => handleInputChange(e)} id="surname" />
                 </label>
                 <div className="formButton">
-                    <input type="submit" value="Go" onClick={handleSubmit}/>
+                    <input type="submit" value="Create user" onClick={handleSubmit}/>
                 </div>
             </form>
+            </div>
         </div>
     )
 }

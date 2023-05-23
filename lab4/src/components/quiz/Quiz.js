@@ -36,46 +36,51 @@ function Quiz() {
 
     submitQuizAnswers(postAnswerRequest).then((response) => {
       console.log(response);
-      if (response.data.correct === true){
+      if (response.data.correct === true) {
         setScore(score + 1);
-        console.log(score)
-      }
-      else {
-        console.log("F")
+        console.log(score);
+      } else {
+        console.log("F");
       }
     });
 
     // Move to the next question
-    setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
-  };
+    setTimeout(() => {
+      setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+    }, 1000); // Change the delay time as desired
+    };
 
   if (currentQuestionIndex >= questions.length) {
     // All questions have been answered
-    return <div>Quiz completed! Score: {score}/{questions.length}</div>;
+    return <div className="quiz final-message">
+      <div className="message-parts">
+        <div>Quiz completed! </div>
+        <div>Score: {score}/{questions.length}</div>
+      </div>
+    </div>;
   }
 
   const currentQuestion = questions[currentQuestionIndex];
 
   return (
-    <div>
-      <div>{quizTitle}</div>
+    <div className="quiz">
+      <div className="play-quiz-title">{quizTitle}</div>
       <div className="questionElement" key={currentQuestion.id}>
         <div className="question">{currentQuestion.question}</div>
 
         <div className="answers">
           {currentQuestion.answers.map((answer, index) => (
-            <label className="answerElement" key={index}>
-              <input
-                type="radio"
-                name={`question_${currentQuestion.id}`}
-                value={answer}
-                checked={selectedAnswers[currentQuestion.id] === answer}
-                onChange={() =>
-                  handleAnswerSelection(currentQuestion.id, answer)
-                }
-              />
+            <button
+              className={`answerElement ${
+                selectedAnswers[currentQuestion.id] === answer ? "selected" : ""
+              }`}
+              key={index}
+              onClick={() =>
+                handleAnswerSelection(currentQuestion.id, answer)
+              }
+            >
               {answer}
-            </label>
+            </button>
           ))}
         </div>
 
